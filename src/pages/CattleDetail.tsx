@@ -1,6 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -43,10 +42,8 @@ const CattleDetail = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-
-      <main className="container px-4 py-8">
+    <Layout>
+      <div className="container px-4 py-8">
         <Button
           variant="ghost"
           className="mb-6"
@@ -184,10 +181,8 @@ const CattleDetail = () => {
             ))}
           </div>
         </Card>
-      </main>
-
-      <Footer />
-    </div>
+      </div>
+    </Layout>
   );
 };
 

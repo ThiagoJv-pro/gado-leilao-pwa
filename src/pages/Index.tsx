@@ -1,9 +1,8 @@
-import { Header } from "@/components/Header";
+import { Layout } from "@/components/Layout";
 import { Hero } from "@/components/Hero";
 import { CattleCard } from "@/components/CattleCard";
 import { SearchBar } from "@/components/SearchBar";
 import { FilterBar } from "@/components/FilterBar";
-import { Footer } from "@/components/Footer";
 import { mockCattle } from "@/data/mockData";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState, useMemo } from "react";
@@ -37,11 +36,10 @@ const Index = () => {
   const upcomingCattle = filteredCattle.filter((c) => c.status === "upcoming");
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <Layout>
       <Hero />
 
-      <main className="container px-4 py-8">
+      <div className="container px-4 py-8">
         <div className="space-y-6 mb-8">
           <SearchBar value={searchTerm} onChange={setSearchTerm} />
           <FilterBar
@@ -86,10 +84,8 @@ const Index = () => {
             )}
           </TabsContent>
         </Tabs>
-      </main>
-
-      <Footer />
-    </div>
+      </div>
+    </Layout>
   );
 };
 
