@@ -1,7 +1,9 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Clock, TrendingUp } from "lucide-react";
+import { Clock, TrendingUp, Heart } from "lucide-react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface CattleCardProps {
   id: number;
@@ -16,6 +18,7 @@ interface CattleCardProps {
 }
 
 export const CattleCard = ({
+  id,
   image,
   name,
   breed,
@@ -25,13 +28,16 @@ export const CattleCard = ({
   timeLeft,
   status,
 }: CattleCardProps) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+  const navigate = useNavigate();
+
   return (
-    <Card className="overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 bg-gradient-card border-border">
-      <div className="relative aspect-[4/3] overflow-hidden">
+    <Card className="overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 bg-gradient-card border-border animate-fade-in">
+      <div className="relative aspect-[4/3] overflow-hidden group cursor-pointer" onClick={() => navigate(`/cattle/${id}`)}>
         <img 
           src={image} 
           alt={name} 
-          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <Badge 
           className="absolute top-3 right-3"
@@ -39,6 +45,19 @@ export const CattleCard = ({
         >
           {status === "active" ? "Ativo" : status === "upcoming" ? "Em breve" : "Encerrado"}
         </Badge>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsFavorite(!isFavorite);
+          }}
+          className="absolute top-3 left-3 p-2 rounded-full bg-card/80 backdrop-blur-sm hover:bg-card transition-colors"
+        >
+          <Heart
+            className={`h-5 w-5 transition-colors ${
+              isFavorite ? "fill-accent text-accent" : "text-muted-foreground"
+            }`}
+          />
+        </button>
       </div>
       
       <div className="p-4 space-y-3">
