@@ -8,6 +8,7 @@ import CattleDetail from "./pages/CattleDetail";
 import Live from "./pages/Live";
 import Account from "./pages/Account";
 import Payments from "./pages/Payments";
+import Calendar from "./pages/Calendar";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/cattle/:id" element={<CattleDetail />} />
           <Route path="/live" element={<Live />} />
+          <Route path="/calendar" element={<Calendar />} />
           <Route path="/account" element={<Account />} />
           <Route path="/payments" element={<Payments />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
