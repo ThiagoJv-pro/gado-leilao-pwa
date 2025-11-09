@@ -33,7 +33,7 @@ export const CattleCard = ({
 
   return (
     <Card className="overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 bg-gradient-card border-border animate-fade-in">
-      <div className="relative aspect-[4/3] overflow-hidden group cursor-pointer" onClick={() => navigate(`/cattle/${id}`)}>
+      <div className="relative aspect-[2/1] overflow-hidden group cursor-pointer" onClick={() => navigate(`/cattle/${id}`)}>
         <img 
           src={image} 
           alt={name} 

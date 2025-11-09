@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/bnout-leiloes/sw.js', { scope: '/bnout-leiloes/' })})}
