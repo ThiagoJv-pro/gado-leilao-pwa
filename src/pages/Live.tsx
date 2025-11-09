@@ -23,7 +23,7 @@ const Live = () => {
 
   return (
     <Layout>
-      <div className="container px-4 py-8">
+      <div className="container px-4 py-8 mt-14 sm:mt-0">
         <div className="flex items-center gap-3 mb-8">
           <div className="relative">
             <Radio className="h-8 w-8 text-accent animate-pulse" />
@@ -93,7 +93,7 @@ const Live = () => {
                 <p className="text-3xl font-bold text-accent">{currentLot.currentBid}</p>
               </div>
 
-              <div className="flex gap-2">
+              <div className="flex gap-2 flex-col">
                 <input
                   type="number"
                   placeholder="Digite seu lance"
